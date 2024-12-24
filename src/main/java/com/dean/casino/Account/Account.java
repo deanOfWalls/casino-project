@@ -23,18 +23,18 @@ public class Account extends AccountBase {
 
     @Override
     public void withdraw(float amount) {
-        if (accountBalance > 0 && amount > 0) {
+        if (accountBalance > 0 && amount > 0 && amount <= accountBalance) {
             accountBalance -= amount;
         }
     }
 
     @Override
     public Account createAccount(String accountName, String password, float initialBalance) {
-        return null;
+        return new Account(accountName, password, initialBalance);
     }
 
     @Override
     public void closeAccount(String accountName, String password) throws AccountNotFoundException, CredentialException {
-
+        //complete logic after db implemented
     }
 }

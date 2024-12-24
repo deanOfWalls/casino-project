@@ -11,20 +11,22 @@ public class Account extends AccountBase {
 
     @Override
     public float getBalance() {
-        return accountBalance;
+        return getAccountBalance();
     }
 
     @Override
     public void deposit(float amount) {
         if (amount > 0) {
-            accountBalance += amount;
+            float balance = getBalance();
+            setAccountBalance(balance + amount);
         }
     }
 
     @Override
     public void withdraw(float amount) {
-        if (accountBalance > 0 && amount > 0 && amount <= accountBalance) {
-            accountBalance -= amount;
+        if (getBalance() > 0 && amount > 0 && amount <= getBalance()) {
+            float balance = getBalance();
+            setAccountBalance(balance - amount);
         }
     }
 

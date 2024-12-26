@@ -1,6 +1,6 @@
 package com.dean.casino.Account;
 
-public abstract class AccountBase implements Manager{
+public abstract class AccountBase implements TransactionManager {
     private String accountName;
     private String password;
     private float accountBalance;

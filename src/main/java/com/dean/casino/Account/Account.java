@@ -17,26 +17,17 @@ public class Account extends AccountBase {
     @Override
     public void deposit(float amount) {
         if (amount > 0) {
-            float balance = getBalance();
-            setAccountBalance(balance + amount);
+            float currentBalance = getBalance();
+            setAccountBalance(currentBalance + amount);
         }
     }
 
     @Override
     public void withdraw(float amount) {
-        if (getBalance() > 0 && amount > 0 && amount <= getBalance()) {
-            float balance = getBalance();
-            setAccountBalance(balance - amount);
+        float currentBalance = getBalance();
+        if (currentBalance > 0 && amount > 0 && amount <= currentBalance) {
+            setAccountBalance(currentBalance - amount);
         }
     }
 
-    @Override
-    public Account createAccount(String accountName, String password, float initialBalance) {
-        return new Account(accountName, password, initialBalance);
-    }
-
-    @Override
-    public void closeAccount(String accountName, String password) throws AccountNotFoundException, CredentialException {
-        //complete logic after db implemented
-    }
 }

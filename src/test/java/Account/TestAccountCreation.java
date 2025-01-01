@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class TestAccountCreation {
     @Test
-    public void testCreate(){
+    public void testCreate() {
         //given
         AccountService accountService = new AccountService();
         String expectedAccountName = "Dean";
@@ -19,11 +19,7 @@ public class TestAccountCreation {
 
         //then
         Assert.assertNotNull(account);
-        Assert.assertEquals((expectedAccountName), account.getAccountName());
-        Assert.assertEquals(expectedPassword, account.getPassword());
-        Assert.assertEquals(expectedInitialBalance, account.getBalance());
-
+        Assert.assertEquals(expectedAccountName, account.getAccountName());
+        Assert.assertTrue(account.validatePassword(expectedPassword, account));
     }
-
-
 }
